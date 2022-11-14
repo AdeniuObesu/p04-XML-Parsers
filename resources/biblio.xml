@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- Liste des documents disponibles -->
 <biblio>
 	<document id="110">
 		<title>Developpement WEB en Java</title>	
@@ -17,7 +18,7 @@
 		<pulisher id="1001" name="Elsevier" country="USA" />
 	</document>
 	
-	<document id="110">
+	<document id="112">
 		<title>Tests Unitaires en Java</title>	
 		<authors>
 			<author id="23">
