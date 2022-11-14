@@ -44,6 +44,22 @@ public class XMLNode {
 		return nodes.toArray(new XMLNode[nodes.size()]);
 	}
 	
+	public XMLNode child(String name) {
+		NodeList list = node.getChildNodes();
+		
+		for(int i=0; i<list.getLength(); i++) {
+			if(list.item(i).getNodeName().equals(name))
+				return new XMLNode(list.item(i));
+		}
+		return null;
+	}
+	
+	public String value() {
+		if(node.getNodeType() == Node.ELEMENT_NODE)
+			return node.getFirstChild().getNodeValue();
+		return node.getNodeValue();
+	}
+	
 	public String name() {
 		return node.getNodeName();
 	}

@@ -18,7 +18,9 @@ public class BiblioParser {
 		XMLNode children[] = root.children();
 		for(XMLNode child : children) {
 			int id = child.intAattribute("id");
-			documents.add(new Document(id));
+			Document doc = new Document(id);
+			documents.add(doc);
+			doc.setTitle(child.child("title").value());
 		}
 	}
 
