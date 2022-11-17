@@ -21,26 +21,30 @@ public class BiblioParser {
 	}
 	
 	// Adds an author to the document
-	public void addAuthor(int documentId, Author author) {
-		if(author == null) {
+	public void addAuthor(int documentId, Author another) {
+		if(another == null) {
 			System.out.println("WARNING : Author cannot be null !");
 		} else {
-			if(doesDocumentExist(documentId)) {
-//				XMLNode node = new XMLNode();
-//				root.child("authors").appendChild();
+			Document target = documents.get(getDocumentIndex(documentId));
+			if( target != null) {
+				target.addAuthor(another);
+				XMLNode[] children = root.children();
+				System.out.println(target);
+				System.out.println("INFO : Added Document(id : "+documentId+") successfully !");
 			} else {
 				System.out.println("INFO : Document(id : "+documentId+") cannot be FOUND !");
 			}
 		}
 	}
-	// Checks either a document does exist or not
-	private boolean doesDocumentExist(int id) {
-		XMLNode children[] = root.children();
-		for(XMLNode child : children) {
-			if(child.intAttribute("id") == id)
-			return true;
+	
+	private XMLNode getDocument(int documentId) {
+		for(XMLNode child : root.children()) {
+			if(child.intAttribute("id") == documentId) {
+				return child;
+			}
 		}
-		return false; //Document NOT FOUND
+		System.out.println("INFO : Document node(id : "+documentId+") cannot be FOUND !");
+		return null;
 	}
 
 	/* Parses an XML file
@@ -81,5 +85,14 @@ public class BiblioParser {
 
 	public List<Document> getDocuments() {
 		return documents;
+	}
+	
+	public int getDocumentIndex(int id) {
+		for(int i=0; i <documents.size(); i++) {
+			if(documents.get(i).getId() == id)
+				return i;
+		}
+		System.out.println("INFO : Document(id : "+id+") cannot be FOUND !");
+		return -1;
 	}
 }

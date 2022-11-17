@@ -10,7 +10,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /*
- * DOM Parser is the easiest java xml parser to learn.
+ * DOM Parser is the easiest java XML parser to learn.
  * DOM parser loads the XML file into memory
  * and we can traverse it node by node to parse the XML.
  * DOM Parser is good for small files but when file size increases it performs slow
