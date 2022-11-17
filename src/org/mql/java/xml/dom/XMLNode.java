@@ -9,7 +9,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
+/*
+ * DOM Parser is the easiest java xml parser to learn.
+ * DOM parser loads the XML file into memory
+ * and we can traverse it node by node to parse the XML.
+ * DOM Parser is good for small files but when file size increases it performs slow
+ * and consumes more memory. This is why there are other alternatives.
+ * */
 public class XMLNode {
 	private Node node;
 	
@@ -61,7 +67,7 @@ public class XMLNode {
 	}
 	
 	public void setValue(String value) {
-		node.setNodeValue(value);
+		node.setTextContent(value);
 	}
 	
 	public String name() {
@@ -72,7 +78,7 @@ public class XMLNode {
 		return (node.getNodeType() == Node.ELEMENT_NODE);
 	}
 	
-	public int intAattribute(String name) {
+	public int intAttribute(String name) {
 		NamedNodeMap attributes = node.getAttributes();
 		try {
 			return Integer.parseInt(attributes.getNamedItem(name).getNodeValue());
@@ -81,6 +87,13 @@ public class XMLNode {
 		}
 	}
 	
+	public void appendChild(String content) {
+		// TODO create child and add it to the current node
+	}
+	public XMLNode removeChild(String name) {
+		// TODO remove the child by its name if it does exist
+		return null;
+	}
 	public void print() {
 		System.out.println(node.getNodeName() + ", "
 				+ node.getNodeType() + " " + node.getNodeValue());
