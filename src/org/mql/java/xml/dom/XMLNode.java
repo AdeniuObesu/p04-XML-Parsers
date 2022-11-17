@@ -32,7 +32,6 @@ public class XMLNode {
 			while(node.getNodeType() != Node.ELEMENT_NODE) {
 				node = node.getNextSibling();
 			}
-			NodeList children = node.getChildNodes();
 		} catch (Exception e) {
 			System.out.println("Erreur : " + e.getMessage());
 		}
@@ -61,13 +60,13 @@ public class XMLNode {
 	}
 	
 	public String getvalue() {
-		if(node.getNodeType() == Node.ELEMENT_NODE)
+		if(isElement())
 			return node.getFirstChild().getNodeValue();
 		return node.getNodeValue();
 	}
 	
 	public void setValue(String value) {
-		node.setTextContent(value);
+		
 	}
 	
 	public String name() {
@@ -101,6 +100,11 @@ public class XMLNode {
 	public void appendChild(String content) {
 		// TODO create child and add it to the current node
 	}
+	
+	public void appendChild(XMLNode node) {
+		// TODO add it to the current node
+	}
+	
 	public XMLNode removeChild(String name) {
 		// TODO remove the child by its name if it does exist
 		return null;
