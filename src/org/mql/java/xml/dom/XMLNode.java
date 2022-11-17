@@ -54,10 +54,14 @@ public class XMLNode {
 		return null;
 	}
 	
-	public String value() {
+	public String getvalue() {
 		if(node.getNodeType() == Node.ELEMENT_NODE)
 			return node.getFirstChild().getNodeValue();
 		return node.getNodeValue();
+	}
+	
+	public void setValue(String value) {
+		node.setNodeValue(value);
 	}
 	
 	public String name() {
@@ -72,7 +76,7 @@ public class XMLNode {
 		NamedNodeMap attributes = node.getAttributes();
 		try {
 			return Integer.parseInt(attributes.getNamedItem(name).getNodeValue());
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			return -1;
 		}
 	}

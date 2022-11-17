@@ -20,7 +20,7 @@ public class BiblioParser {
 			int id = child.intAattribute("id");
 			Document doc = new Document(id);
 			documents.add(doc);
-			doc.setTitle(child.child("title").value());
+			doc.setTitle(child.child("title").getvalue());
 		}
 	}
 

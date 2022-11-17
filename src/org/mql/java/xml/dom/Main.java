@@ -15,6 +15,8 @@ public class Main {
 		for(Document doc : docs) {
 			System.out.println(doc);
 		}
-		
+	}
+	public static void main(String[] args) {
+		new Main();
 	}
 }
