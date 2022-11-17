@@ -6,6 +6,10 @@ public class Author {
 	private Date dateOfBirth;
 	private String country;
 	
+	public Author(int id) {
+		this.id = id;
+	}
+	
 	public Author(int id, String name, Date dateOfBirth, String country) {
 		this.id = id;
 		this.name = name;

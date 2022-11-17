@@ -15,7 +15,7 @@
 				<country>USA</country>
 			</author>
 		</authors>
-		<pulisher id="1001" name="Elsevier" country="USA" />
+		<publisher id="1001" name="Elsevier" country="USA" />
 	</document>
 	
 	<document id="112">
@@ -32,7 +32,7 @@
 				<country>Canada</country>
 			</author>
 		</authors>
-		<pulisher id="1002" name="Prentice Hall" country="USA" />
+		<publisher id="1002" name="Prentice Hall" country="USA" />
 	</document>
 	
 	<document id="115">
@@ -44,6 +44,6 @@
 				<country>Suisse</country>
 			</author>
 		</authors>
-		<pulisher id="1012" name="Dunod" country="France" />
+		<publisher id="1012" name="Dunod" country="France" />
 	</document>
 </biblio>

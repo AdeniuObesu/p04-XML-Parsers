@@ -82,8 +82,19 @@ public class XMLNode {
 		NamedNodeMap attributes = node.getAttributes();
 		try {
 			return Integer.parseInt(attributes.getNamedItem(name).getNodeValue());
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
+			System.out.println("INFO : Looking for Attribute : "+ name +" -> "+ e.getMessage());
 			return -1;
+		}
+	}
+	
+	public String strAttribute(String name) {
+		NamedNodeMap attributes = node.getAttributes();
+		try {
+			return attributes.getNamedItem(name).getNodeValue();
+		} catch (Exception e) {
+			System.out.println("INFO : Looking for Attribute : "+ name +" -> "+ e.getMessage());
+			return null;
 		}
 	}
 	

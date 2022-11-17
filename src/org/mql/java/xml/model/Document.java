@@ -14,6 +14,7 @@ public class Document {
 	
 	public Document(int id) {
 		this.id = id;
+		authors = new Vector<>();
 	}
 
 	public Document(int id, String title, Publisher publisher) {
@@ -21,10 +22,6 @@ public class Document {
 		this.title = title;
 		this.publisher = publisher;
 		authors = new Vector<>();
-	}
-	
-	public void add(Author a) {
-		authors.add(a);
 	}
 
 	@Override
@@ -54,6 +51,11 @@ public class Document {
 
 	public void setAuthors(List<Author> authors) {
 		this.authors = authors;
+	}
+	
+	public void addAuthor(Author another) {
+		if(another!=null)
+			authors.add(another);
 	}
 
 	public Publisher getPublisher() {
