@@ -12,9 +12,6 @@ public class Main {
 	void exp01() {
 		BiblioParser parser = new BiblioParser("resources/biblio.xml");
 		List<Document> docs = parser.getDocuments();
-		for(Document doc : docs) {
-			System.out.println(doc);
-		}
 	}
 	public static void main(String[] args) {
 		new Main();

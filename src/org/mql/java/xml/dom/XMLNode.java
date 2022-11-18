@@ -5,7 +5,9 @@ import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -18,16 +20,19 @@ import org.w3c.dom.NodeList;
  * */
 public class XMLNode {
 	private Node node;
+	private DocumentBuilderFactory factory;
+	private DocumentBuilder builder;
+	private Document document;
 	
-	public XMLNode(Node node) {
+	private XMLNode(Node node) {
 		this.node = node;
 	}
 	
 	public XMLNode(String source) {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
+		factory = DocumentBuilderFactory.newDefaultInstance();
 		try {
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document document = builder.parse(source);
+			builder = factory.newDocumentBuilder();
+			document = builder.parse(source);
 			node = document.getFirstChild();
 			while(node.getNodeType() != Node.ELEMENT_NODE) {
 				node = node.getNextSibling();
@@ -59,14 +64,14 @@ public class XMLNode {
 		return null;
 	}
 	
-	public String getvalue() {
+	public String value() {
 		if(isElement())
 			return node.getFirstChild().getNodeValue();
 		return node.getNodeValue();
 	}
 	
-	public void setValue(String value) {
-		
+	public void value(String value) {
+		node.setNodeValue(value);
 	}
 	
 	public String name() {
@@ -77,17 +82,7 @@ public class XMLNode {
 		return (node.getNodeType() == Node.ELEMENT_NODE);
 	}
 	
-	public int intAttribute(String name) {
-		NamedNodeMap attributes = node.getAttributes();
-		try {
-			return Integer.parseInt(attributes.getNamedItem(name).getNodeValue());
-		} catch (Exception e) {
-			System.out.println("INFO : Looking for Attribute : "+ name +" -> "+ e.getMessage());
-			return -1;
-		}
-	}
-	
-	public String strAttribute(String name) {
+	public String getAttribute(String name) {
 		NamedNodeMap attributes = node.getAttributes();
 		try {
 			return attributes.getNamedItem(name).getNodeValue();
@@ -97,20 +92,23 @@ public class XMLNode {
 		}
 	}
 	
-	public void appendChild(String content) {
-		// TODO create child and add it to the current node
+	public void setAttribute(String name, String value) {
+		if(isElement()) {
+			Element element = (Element) node;
+			element.setAttribute(name, value);
+		}
 	}
 	
-	public void appendChild(XMLNode node) {
-		// TODO add it to the current node
-	}
-	
-	public XMLNode removeChild(String name) {
-		// TODO remove the child by its name if it does exist
-		return null;
-	}
 	public void print() {
 		System.out.println(node.getNodeName() + ", "
 				+ node.getNodeType() + " " + node.getNodeValue());
+	}
+
+	public XMLNode createElement(String name) {
+		if(isElement()) {
+			Element another = (Element) document.createElement(name);
+			return new XMLNode(another);
+		}
+		return null;
 	}
 }
