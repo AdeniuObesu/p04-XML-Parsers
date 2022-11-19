@@ -138,13 +138,6 @@ public class XMLNode {
 				cursor = cursor.getNextSibling();
 			}
 			root = cursor;
-			
-			String expression = "biblio/document";
-			
-			XPathFactory factory = XPathFactory.newInstance();
-			XPath xpath = factory.newXPath();
-			XPathExpression expr = xpath.compile(expression);
-			Object result = expr.evaluate(document, XPathConstants.NODESET);
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(document);

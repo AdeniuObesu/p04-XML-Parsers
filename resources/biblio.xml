@@ -6,16 +6,16 @@
 		<authors>
 			<author id="10">
 				<name>James Gosling</name>
-				<date day="18" month="05" year="1955" />
+				<date day="19" month="05" year="1955"/>
 				<country>Canada</country>
 			</author>
 			<author id="15">
 				<name>Time Berners Lee</name>
-				<date day="08" month="06" year="1955" />
+				<date day="08" month="06" year="1955"/>
 				<country>USA</country>
 			</author>
 		</authors>
-		<publisher id="1001" name="Elsevier" country="USA" />
+		<publisher country="USA" id="1001" name="Elsevier"/>
 	</document>
 	
 	<document id="112">
@@ -23,16 +23,16 @@
 		<authors>
 			<author id="23">
 				<name>Erich Gamma</name>
-				<date day="13" month="03" year="1961" />
+				<date day="13" month="03" year="1961"/>
 				<country>Suisse</country>
 			</author>
 			<author id="10">
 				<name>James Gosling</name>
-				<date day="18" month="05" year="1955" />
+				<date day="19" month="05" year="1955"/>
 				<country>Canada</country>
 			</author>
 		</authors>
-		<publisher id="1002" name="Prentice Hall" country="USA" />
+		<publisher country="USA" id="1002" name="Prentice Hall"/>
 	</document>
 	
 	<document id="115">
@@ -40,11 +40,10 @@
 		<authors>
 			<author id="23">
 				<name>Erich Gamma</name>
-				<date day="13" month="03" year="1961" />
+				<date day="13" month="03" year="1961"/>
 				<country>Suisse</country>
 			</author>
 		</authors>
-		<publisher id="1012" name="Dunod" country="France" />
+		<publisher country="France" id="1012" name="Dunod"/>
 	</document>
-	
 </biblio>

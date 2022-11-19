@@ -17,16 +17,15 @@ public class BiblioParser {
 		this.source = source;
 		this.root = parse();
 		Document document;
-		for(int i=0; i<1; i++) {
-			document = new Document(i);
-			document.setTitle("Title " + i);
-//			document.setPublisher(new Publisher(i, "publisher" + i, "country" + i));
-//			for(int j=1; j<3; j++) {
-//				document.addAuthor(new Author(i, "Author"+i, new Date(1, i, 1980), "Country" + i));
-//			}
-			addDocument(document);
-		}
-		
+		document = new Document(1);
+		document.setTitle("Design patterns : Elements of reusable object oriented software");
+		document.setPublisher(new Publisher(1, "Addison-Wesley", "USA"));
+		document.addAuthor(new Author(20, "John Matthew Vlissides", new Date(2, 8, 1961), "USA"));
+		document.addAuthor(new Author(21, "Richard Helm", new Date(1, 1, 1966), ""));
+		document.addAuthor(new Author(22, "Ralph E. Johnson", new Date(7, 10, 1955), "USA"));
+		document.addAuthor(new Author(23, "Erich Gamma", new Date(13, 3, 1961), "Suisse"));
+		addDocument(document);
+		root.save("resources/bibliotheque.xml");
 	}
 
 	/* Parses an XML file
@@ -99,8 +98,6 @@ public class BiblioParser {
 			
 			docNode.appendChild(titleNode);
 			root.appendChild(docNode);
-			
-			root.save("resources/bibliotheque.xml");
 		}
 	}
 	
