@@ -9,10 +9,6 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -133,11 +129,6 @@ public class XMLNode {
 	public void save(String location) {
 		try {
 			System.out.println("Here, we save the file.");
-			Node root, cursor = document.getFirstChild();
-			while(cursor.getNodeType() != Node.ELEMENT_NODE) {
-				cursor = cursor.getNextSibling();
-			}
-			root = cursor;
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(document);
