@@ -1,11 +1,19 @@
 package org.mql.java.xml.dom;
 
+import java.io.File;
 import java.util.Vector;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
 
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -99,6 +107,10 @@ public class XMLNode {
 		}
 	}
 	
+	public void setTextContent(String value) {
+		node.setTextContent(value);
+	}
+	
 	public void print() {
 		System.out.println(node.getNodeName() + ", "
 				+ node.getNodeType() + " " + node.getNodeValue());
@@ -107,8 +119,44 @@ public class XMLNode {
 	public XMLNode createElement(String name) {
 		if(isElement()) {
 			Element another = (Element) document.createElement(name);
-			return new XMLNode(another);
+			XMLNode toReturn = new XMLNode(another);
+			toReturn.document = document;
+			return toReturn;
 		}
 		return null;
+	}
+
+	public void appendChild(XMLNode xmlNode) {
+		node.appendChild(xmlNode.node);
+	}
+	
+	public void save(String location) {
+		try {
+			System.out.println("Here, we save the file.");
+			Node root, cursor = document.getFirstChild();
+			while(cursor.getNodeType() != Node.ELEMENT_NODE) {
+				cursor = cursor.getNextSibling();
+			}
+			root = cursor;
+			
+			String expression = "biblio/document";
+			
+			XPathFactory factory = XPathFactory.newInstance();
+			XPath xpath = factory.newXPath();
+			XPathExpression expr = xpath.compile(expression);
+			Object result = expr.evaluate(document, XPathConstants.NODESET);
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(document);
+			StreamResult streamResult = new StreamResult(new File(location));
+			transformer.transform(source, streamResult);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return node.getNodeName() + " - " + node.getTextContent();
 	}
 }

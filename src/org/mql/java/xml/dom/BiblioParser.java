@@ -17,12 +17,13 @@ public class BiblioParser {
 		this.source = source;
 		this.root = parse();
 		Document document;
-		for(int i=0; i<4; i++) {
+		for(int i=0; i<1; i++) {
 			document = new Document(i);
-			document.setPublisher(new Publisher(i, "publisher" + i, "country" + i));
-			for(int j=1; j<3; j++) {
-				document.addAuthor(new Author(i, "Author"+i, new Date(1, i, 1980), "Country" + i));
-			}
+			document.setTitle("Title " + i);
+//			document.setPublisher(new Publisher(i, "publisher" + i, "country" + i));
+//			for(int j=1; j<3; j++) {
+//				document.addAuthor(new Author(i, "Author"+i, new Date(1, i, 1980), "Country" + i));
+//			}
 			addDocument(document);
 		}
 		
@@ -68,7 +69,7 @@ public class BiblioParser {
 		return documents;
 	}
 	
-	public int getDocumentIndex(int id) {
+	public int idToDocumentIndex(int id) {
 		for(int i=0; i <documents.size(); i++) {
 			if(documents.get(i).getId() == id)
 				return i;
@@ -89,9 +90,19 @@ public class BiblioParser {
 	public void addDocument(Document another) {
 		if(another != null) {
 			documents.add(another);
+			
 			XMLNode docNode = root.createElement("document");
-			docNode.setAttribute("id", String.valueOf(another.getId()));
-			System.out.println(docNode.getAttribute("id"));
+			docNode.setAttribute("id", another.getId()+"");
+			
+			XMLNode titleNode = docNode.createElement("title");
+			titleNode.setTextContent(another.getTitle());
+			
+			docNode.appendChild(titleNode);
+			root.appendChild(docNode);
+			
+			root.save("resources/bibliotheque.xml");
 		}
 	}
+	
+	
 }

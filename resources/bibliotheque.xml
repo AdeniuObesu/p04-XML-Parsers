@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Liste des documents disponibles --><biblio>
+	<document id="110">
+		<title>Developpement WEB en Java</title>	
+		<authors>
+			<author id="10">
+				<name>James Gosling</name>
+				<date day="18" month="05" year="1955"/>
+				<country>Canada</country>
+			</author>
+			<author id="15">
+				<name>Time Berners Lee</name>
+				<date day="08" month="06" year="1955"/>
+				<country>USA</country>
+			</author>
+		</authors>
+		<publisher country="USA" id="1001" name="Elsevier"/>
+	</document>
+	
+	<document id="112">
+		<title>Tests Unitaires en Java</title>	
+		<authors>
+			<author id="23">
+				<name>Erich Gamma</name>
+				<date day="13" month="03" year="1961"/>
+				<country>Suisse</country>
+			</author>
+			<author id="10">
+				<name>James Gosling</name>
+				<date day="18" month="05" year="1955"/>
+				<country>Canada</country>
+			</author>
+		</authors>
+		<publisher country="USA" id="1002" name="Prentice Hall"/>
+	</document>
+	
+	<document id="115">
+		<title>Eclipse Modeling Framework (EMF) et XMI</title>	
+		<authors>
+			<author id="23">
+				<name>Erich Gamma</name>
+				<date day="13" month="03" year="1961"/>
+				<country>Suisse</country>
+			</author>
+		</authors>
+		<publisher country="France" id="1012" name="Dunod"/>
+	</document>
+	
+<document id="0"><title>Title 0</title></document></biblio>
