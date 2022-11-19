@@ -92,12 +92,33 @@ public class BiblioParser {
 			
 			XMLNode docNode = root.createElement("document");
 			docNode.setAttribute("id", another.getId()+"");
-			
+			root.appendChild(docNode);
 			XMLNode titleNode = docNode.createElement("title");
 			titleNode.setTextContent(another.getTitle());
-			
 			docNode.appendChild(titleNode);
-			root.appendChild(docNode);
+			XMLNode publisherNode = docNode.createElement("publisher");
+			publisherNode.setAttribute("country", another.getPublisher().getCountry());
+			publisherNode.setAttribute("id", another.getPublisher().getId()+"");
+			publisherNode.setAttribute("name", another.getPublisher().getName());
+			docNode.appendChild(publisherNode);
+			XMLNode authorNode, authorsNode = docNode.createElement("authors");
+			for(Author author : another.getAuthors()) {
+				authorNode = authorsNode.createElement("author");
+				authorNode.setAttribute("id", author.getId()+"");
+				XMLNode nameNode = authorNode.createElement("name");
+				nameNode.setTextContent(author.getName());
+				authorNode.appendChild(nameNode);
+				XMLNode dateNode = authorNode.createElement("date");
+				dateNode.setAttribute("day", author.getDateOfBirth().getDay()+"");
+				dateNode.setAttribute("month", author.getDateOfBirth().getMonth()+"");
+				dateNode.setAttribute("year", author.getDateOfBirth().getYear()+"");
+				authorNode.appendChild(dateNode);
+				XMLNode countryNode = authorNode.createElement("country");
+				countryNode.setTextContent(author.getCountry());
+				authorNode.appendChild(countryNode);
+				authorsNode.appendChild(authorNode);
+			}
+			docNode.appendChild(authorsNode);
 		}
 	}
 	

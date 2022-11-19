@@ -1,6 +1,73 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Liste des documents disponibles -->
-<biblio>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Liste des documents disponibles --><biblio>
+	<document id="110">
+		<title>Developpement WEB en Java</title>	
+		<authors>
+			<author id="10">
+				<name>James Gosling</name>
+				<date day="19" month="05" year="1955"/>
+				<country>Canada</country>
+			</author>
+			<author id="15">
+				<name>Time Berners Lee</name>
+				<date day="08" month="06" year="1955"/>
+				<country>USA</country>
+			</author>
+		</authors>
+		<publisher country="USA" id="1001" name="Elsevier"/>
+	</document>
+	
+	<document id="112">
+		<title>Tests Unitaires en Java</title>	
+		<authors>
+			<author id="23">
+				<name>Erich Gamma</name>
+				<date day="13" month="03" year="1961"/>
+				<country>Suisse</country>
+			</author>
+			<author id="10">
+				<name>James Gosling</name>
+				<date day="19" month="05" year="1955"/>
+				<country>Canada</country>
+			</author>
+		</authors>
+		<publisher country="USA" id="1002" name="Prentice Hall"/>
+	</document>
+	
+	<document id="115">
+		<title>Eclipse Modeling Framework (EMF) et XMI</title>	
+		<authors>
+			<author id="23">
+				<name>Erich Gamma</name>
+				<date day="13" month="03" year="1961"/>
+				<country>Suisse</country>
+			</author>
+		</authors>
+		<publisher country="France" id="1012" name="Dunod"/>
+	</document>
+	
 	<document id="1">
-		<title>Title 0</title>
+		<title>Design patterns : Elements of reusable object oriented software</title>
+		<publisher country="USA" id="1" name="Addison-Wesley"/>
+		<authors>
+			<author id="20">
+				<name>John Matthew Vlissides</name>
+				<date day="2" month="8" year="1961"/>
+				<country>USA</country>
+			</author>
+				<author id="21">
+				<name>Richard Helm</name>
+				<date day="1" month="1" year="1966"/>
+			<country/></author>
+				<author id="22">
+				<name>Ralph E. Johnson</name>
+				<date day="7" month="10" year="1955"/>
+				<country>USA</country>
+			</author>
+			<author id="23">
+				<name>Erich Gamma</name>
+				<date day="13" month="3" year="1961"/>
+				<country>Suisse</country>
+			</author>
+		</authors>
 	</document>
 </biblio>
