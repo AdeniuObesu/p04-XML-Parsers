@@ -19,6 +19,7 @@ public class XMLNode {
 	
 	public XMLNode(String source) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
+		// pour rendre le parseur validant factory.setValidating(true);
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document document = builder.parse(source);
