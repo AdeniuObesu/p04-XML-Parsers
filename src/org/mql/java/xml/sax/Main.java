@@ -9,15 +9,17 @@ public class Main extends JFrame {
 	public Main() {
 		FormSAXParser parser = new FormSAXParser("resources/form.xml");
 		exp01();
-	}
-	
-	void exp01() {
 		setTitle("Mon application");
-		Form form = new Form("Formulaire");
-		setContentPane(form);
 		setSize(700, 300);
 		setLocationRelativeTo(null);
 		setVisible(true);
+	}
+	
+	void exp01() {
+		Form form = new Form("Formulaire");
+		form.addTextField("Id", 10);
+		form.addTextField("Titre", 30);
+		setContentPane(form);
 	}
 	
 	public static void main(String[] args) {

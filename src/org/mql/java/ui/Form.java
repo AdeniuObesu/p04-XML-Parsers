@@ -12,17 +12,26 @@ public class Form extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel container;
+	private int labelWidth;
 	
 	public Form(String title) {
-		setLayout(new FlowLayout(FlowLayout.LEFT));
-		setBorder(new LineBorder(Color.blue));
-		container = new JPanel();
-		container.setBorder(new TitledBorder(title));
-		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-		add(container);
+		this(title, 100);
 	}
 	
-	public void addTextField(String label, int size) {
+	public Form(String title, int labelWidth) {
+		this.labelWidth = labelWidth;
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		setBorder(new LineBorder(Color.blue));
 		
+		container = new JPanel();
+		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+		container.setBorder(new TitledBorder(title));
+		add(container);
+	}
+	public void addTextField(LabeledTextField field) {
+		container.add(field);
+	}
+	public void addTextField(String label, int size) {
+		container.add(new LabeledTextField(label, size, labelWidth));
 	}
 }
