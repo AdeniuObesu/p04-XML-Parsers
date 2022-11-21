@@ -4,7 +4,7 @@
 	<field type="text" size="10" label="Id"/>
 	<field type="text" size="30" label="Titre"/>
 	<field type="text" size="10" label="Annee d'edition"/>
-	<field type="text" label="Format">
+	<field type="radio" label="Format">
 		<item>Electronique</item>
 		<item>Papier</item>
 	</field>
