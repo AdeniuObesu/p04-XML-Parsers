@@ -32,4 +32,7 @@ public class Form extends JPanel {
 	public void addTextField(String label, int size) {
 		container.add(new LabeledTextField(label, size, labelWidth));
 	}
+	public void addChoicePanel(ChoiceStyle style, String label, String... items) {
+		container.add(new ChoicePanel(style, label, items));
+	}
 }

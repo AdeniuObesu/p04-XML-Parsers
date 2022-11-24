@@ -6,6 +6,8 @@ import java.util.Vector;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.mql.java.ui.ChoicePanel;
+import org.mql.java.ui.ChoiceStyle;
 import org.mql.java.ui.Form;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -14,7 +16,13 @@ import org.xml.sax.helpers.DefaultHandler;
 public class FormSAXParser extends DefaultHandler{
 	private String source; //L'entree : le chemin vers un formulaire XML
 	private Form form; //La sortie : un formulaire Swing
+	
 	private List<String> items;
+	
+	private boolean item = false;
+	
+	private String type, label;
+	
 	
 	public FormSAXParser(String source) {
 		this.source = source;
@@ -22,7 +30,7 @@ public class FormSAXParser extends DefaultHandler{
 		SAXParser parser;
 		try {
 			parser = factory.newSAXParser();
-			parser.parse(source, this);
+			parser.parse(this.source, this);
 		} catch (Exception e) {
 			System.out.println("Erreur - " + e.getMessage());;
 		}
@@ -49,24 +57,41 @@ public class FormSAXParser extends DefaultHandler{
 			}
 			form = new Form(title, labelWidth);
 		} else if("field".equals(qName)){
-			String type = attributes.getValue("type");
-			String label = attributes.getValue("label");
+			type = attributes.getValue("type");
+			label = attributes.getValue("label");
 			if("text".equals(type)) {
 				int size = Integer.parseInt(attributes.getValue("size"));
 				form.addTextField(label, size);
 			} else if("combo".equals(type) || "radio".equals(type)) {
 				items = new Vector<>();
 				
+			} else if("item".equals(qName)) {
+				item = true;
+				
 			}
 		}
 	}
 	
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		super.endElement(uri, localName, qName);
+		if("item".equals(qName)) {
+			item = false;
+		} else if("field".equals(qName)) {
+			if(items != null) {
+				
+				form.addChoicePanel(
+						ChoiceStyle.valueOf(type.toUpperCase()),
+						label,
+						items.toArray(new String[items.size()])
+						);
+			}
+		}
 	}
 	
 	public void characters(char[] ch, int start, int length) throws SAXException{
-		
+		if(item) {
+			String s = new String(ch, start, length);
+			items.add(s);
+		}
 	}
 	
 	public void endDocument() throws SAXException {
