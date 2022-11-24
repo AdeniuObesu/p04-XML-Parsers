@@ -1,13 +1,4 @@
 package org.mql.java.xml.model;
-
-<<<<<<< HEAD
-public class Date {
-	private int day;
-	private int month;
-	private int year;
-	
-	public Date(int day, int month, int year) {
-=======
 import java.util.GregorianCalendar;
 
 public class Date {
@@ -21,16 +12,11 @@ public class Date {
 	}
 	
 	public Date(int day, int month, int year){
->>>>>>> reference
 		this.day = day;
 		this.month = month;
 		this.year = year;
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> reference
 	public int getDay() {
 		return day;
 	}
@@ -57,16 +43,9 @@ public class Date {
 
 	@Override
 	public String toString() {
-<<<<<<< HEAD
 		return (
 				day+"/"+month+"/"+year
 				);
 				
 	}
-=======
-		return day + "/" + month + "/" + year;
-	}
-	
-	
->>>>>>> reference
 }

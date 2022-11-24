@@ -33,12 +33,8 @@ public class XMLNode {
 	}
 	
 	public XMLNode(String source) {
-<<<<<<< HEAD
-		factory = DocumentBuilderFactory.newDefaultInstance();
-=======
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
 		// pour rendre le parseur validant factory.setValidating(true);
->>>>>>> reference
 		try {
 			builder = factory.newDocumentBuilder();
 			document = builder.parse(source);
