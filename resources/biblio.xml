@@ -15,7 +15,11 @@
 				<country>USA</country>
 			</author>
 		</authors>
+<<<<<<< HEAD
 		<publisher country="USA" id="1001" name="Elsevier"/>
+=======
+		<publisher id="1001" name="Elsevier" country="USA" />
+>>>>>>> reference
 	</document>
 	
 	<document id="112">
@@ -32,7 +36,11 @@
 				<country>Canada</country>
 			</author>
 		</authors>
+<<<<<<< HEAD
 		<publisher country="USA" id="1002" name="Prentice Hall"/>
+=======
+		<publisher id="1002" name="Prentice Hall" country="USA" />
+>>>>>>> reference
 	</document>
 	
 	<document id="115">
@@ -44,6 +52,10 @@
 				<country>Suisse</country>
 			</author>
 		</authors>
+<<<<<<< HEAD
 		<publisher country="France" id="1012" name="Dunod"/>
+=======
+		<publisher id="1012" name="Dunod" country="France" />
+>>>>>>> reference
 	</document>
 </biblio>

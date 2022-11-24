@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form title="Nouveau Document" label-width="120">
+	<field type="text" size="10" label="Id" />
+	<field type="text" size="30" label="Titre" />
+	<field type="text" size="10" label="Année d'édition" />
+	<field type="radio" label="Format">
+		<item>Electronique</item>
+		<item>Papier</item>
+	</field>
+	<field type="combo" label="Langue">
+		<item>Français</item>
+		<item>Anglais</item>
+		<item>Arabe</item>
+	</field>
+	<buttons>
+		<button>Valider</button>
+		<button>Annuler</button>
+	</buttons>
+</form>

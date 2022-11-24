@@ -1,16 +1,36 @@
 package org.mql.java.xml.model;
 
+<<<<<<< HEAD
 public class Date {
 	private int day;
 	private int month;
 	private int year;
 	
 	public Date(int day, int month, int year) {
+=======
+import java.util.GregorianCalendar;
+
+public class Date {
+	private int day, month, year;
+	
+	public Date() {
+		GregorianCalendar gc = new GregorianCalendar();
+		day = gc.get(GregorianCalendar.DAY_OF_MONTH);
+		month = gc.get(GregorianCalendar.MONTH) + 1;
+		year = gc.get(GregorianCalendar.YEAR);
+	}
+	
+	public Date(int day, int month, int year){
+>>>>>>> reference
 		this.day = day;
 		this.month = month;
 		this.year = year;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> reference
 	public int getDay() {
 		return day;
 	}
@@ -37,9 +57,16 @@ public class Date {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return (
 				day+"/"+month+"/"+year
 				);
 				
 	}
+=======
+		return day + "/" + month + "/" + year;
+	}
+	
+	
+>>>>>>> reference
 }
