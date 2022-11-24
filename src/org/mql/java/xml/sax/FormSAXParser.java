@@ -6,7 +6,6 @@ import java.util.Vector;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.mql.java.ui.ChoicePanel;
 import org.mql.java.ui.ChoiceStyle;
 import org.mql.java.ui.Form;
 import org.xml.sax.Attributes;
@@ -41,11 +40,13 @@ public class FormSAXParser extends DefaultHandler{
 		return form;
 	}
 	
+	@Override
 	public void startDocument() throws SAXException {
 		System.out.println(">> Start document");
 	}
 	
-	public void startElement(String uri, String localName, String qName, Attributes attributes) {
+	@Override
+	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
 		//qName : qualified name
 		if("form".equals(qName)) {
 			String title = attributes.getValue("title");
@@ -65,19 +66,18 @@ public class FormSAXParser extends DefaultHandler{
 			} else if("combo".equals(type) || "radio".equals(type)) {
 				items = new Vector<>();
 				
-			} else if("item".equals(qName)) {
-				item = true;
-				
-			}
+			} 
+		}else if("item".equals(qName)) {
+			item = true;
 		}
 	}
 	
+	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if("item".equals(qName)) {
 			item = false;
 		} else if("field".equals(qName)) {
 			if(items != null) {
-				
 				form.addChoicePanel(
 						ChoiceStyle.valueOf(type.toUpperCase()),
 						label,
@@ -87,13 +87,16 @@ public class FormSAXParser extends DefaultHandler{
 		}
 	}
 	
+	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException{
 		if(item) {
 			String s = new String(ch, start, length);
+			System.out.println(s);
 			items.add(s);
 		}
 	}
 	
+	@Override
 	public void endDocument() throws SAXException {
 		System.out.println(">> END document (well-formed)");
 	}

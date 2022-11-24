@@ -16,6 +16,7 @@ public class Main extends JFrame {
 		//setSize(700, 300);
 		pack();
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 	
