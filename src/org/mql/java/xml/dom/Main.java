@@ -11,7 +11,10 @@ public class Main {
 	
 	void exp01() {
 		BiblioParser parser = new BiblioParser("resources/biblio.xml");
-		List<Document> docs = parser.getDocuments();
+		List<Document> documents = parser.getDocuments();
+		for(Document document : documents) {
+			System.out.println(document);
+		}
 	}
 	public static void main(String[] args) {
 		new Main();

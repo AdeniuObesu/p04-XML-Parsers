@@ -3,12 +3,19 @@ package org.mql.java.xml.sax;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 import org.mql.java.ui.Form;
 
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public Main() {
+
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception e) {
+			System.err.println("Erreur - " + e.getMessage());
+		}
 		FormSAXParser parser = new FormSAXParser("resources/form.xml");
 		setContentPane(parser.getForm());
 		//exp01();

@@ -22,6 +22,7 @@ import org.w3c.dom.NodeList;
  * DOM Parser is good for small files but when file size increases it performs slow
  * and consumes more memory. This is why there are other alternatives.
  * */
+@SuppressWarnings("unused")
 public class XMLNode {
 	private Node node;
 	private DocumentBuilderFactory factory;
