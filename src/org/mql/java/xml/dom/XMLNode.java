@@ -27,7 +27,7 @@ public class XMLNode {
 			while(node.getNodeType() != Node.ELEMENT_NODE) {
 				node = node.getNextSibling();
 			}
-			NodeList children = node.getChildNodes();
+//			NodeList children = node.getChildNodes();
 		} catch (Exception e) {
 			System.out.println("Erreur : " + e.getMessage());
 		}

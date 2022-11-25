@@ -14,7 +14,9 @@ public class Main {
 		List<Document> docs = parser.getDocuments();
 		for(Document doc : docs) {
 			System.out.println(doc);
-		}
-		
+		}	
+	}
+	public static void main(String args[]) {
+		new Main();
 	}
 }
