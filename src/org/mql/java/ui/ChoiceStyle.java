@@ -9,5 +9,6 @@ public enum ChoiceStyle {
 	private String name;
 	private ChoiceStyle(int id, String name) {
 		this.id = id;
+		this.name = name;
 	}
 }
